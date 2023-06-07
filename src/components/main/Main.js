@@ -17,7 +17,7 @@ const Main = () => {
   const datas = useSelector((state) => state.data.datas)
   const isLoading = useSelector((state) => state.data.isLoading)
   const error = useSelector((state) => state.data.error)
-  console.log(datas)
+
 
   const handleClick = (el) => {
     dispatch(handleFocus(el))
@@ -28,16 +28,23 @@ const Main = () => {
   const columns = [
     {
       title: 'RowHead',
-      dataIndex: 'id',
+      dataIndex: 'uuid',
       rowScope: 'row',
+    },
+    {
+      title: 'Coin Icon Image',
+      dataIndex: 'iconUrl',
+      render: (iconUrl) => (
+        <img src={iconUrl} alt="Icon" style={{ width: 30, height: 30 }} />
+      ),
     },
     {
       title: 'Name',
       dataIndex: 'name'
     },
     {
-      title: 'Email',
-      dataIndex: 'email'
+      title: 'Symbol',
+      dataIndex: 'symbol'
     },
     {
       title: 'CoinDetay',

@@ -1,4 +1,30 @@
 .leftMenu{
-    background-color: blue;
+    background-color:#FAFAFA;
     height: 800px;
+    box-shadow: inset;
+    .leftMenuLogo{
+     margin-top: 10px;
+     display: flex;
+    }
+    img{
+        width: 40px;
+        height: 50px;
+        padding: 9px 15px 0 15px;
+    }
+    .leftMenuLink {
+            font-weight: 500;
+            font-size: 15px;
+            display: flex;
+            flex-direction: column;
+            color: black;
+            margin-top: 30px;
+            a{
+                color: black;
+                padding: 15px 0 0px 25px;
+                text-decoration: none;
+                font-size: large;
+                font-weight: 500;
+            }
+
+    }
 }

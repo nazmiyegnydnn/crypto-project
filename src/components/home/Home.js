@@ -2,6 +2,7 @@ import React from "react";
 import LeftMenu from "../leftMenu/LeftMenu";
 import Main from "../main/Main";
 import { Col, Row } from 'antd';
+import News from "../news/News";
 
 const Home = () => {
   return (

@@ -1,0 +1,38 @@
+.news{
+    display: flex;
+    background-color: #FAFAFA;
+    .newsTitle{
+        h1{
+            margin: 30px 0 0 450px;
+        }
+    }
+    .newsMenu{
+        margin: 40px 0 0 100px;
+        display: flex;  
+        flex-wrap: wrap;
+    }
+    .newsCard{
+        border: 1px solid gray;
+        border-radius: 5px;
+        margin: 10px;
+        h4{
+            margin-left: 60px;
+        }
+        img{
+            width: 150px;
+            height: 100px;
+            padding: 10px 0 0 31px;
+        }
+        p{
+            margin-left: 10px;
+            width: 200px;
+            height: 100px;
+        }
+    }
+}
+
+
+
+
+
+

@@ -1,6 +1,23 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit' 
 import axios from 'axios'
 
+const getCoinsOptions = {
+  method: 'GET',
+  url: 'https://coinranking1.p.rapidapi.com/coins',
+  params: {
+    referenceCurrencyUuid: 'yhjMzLPhuIDl',
+    timePeriod: '24h',
+    'tiers[0]': '1',
+    orderBy: 'marketCap',
+    orderDirection: 'desc',
+    limit: '20',
+    offset: '0'
+  },
+  headers: {
+    'X-RapidAPI-Key': '71bce517ddmshb29fe81cc98c1dbp110291jsn03ddfbf9a45a',
+    'X-RapidAPI-Host': 'coinranking1.p.rapidapi.com'
+  }
+};
 
 const initialState = {
     datas: [],
@@ -10,10 +27,12 @@ const initialState = {
 }
 
 export const fetchData = createAsyncThunk("fetchContent" ,async() =>{
-    const res = await axios ("https://jsonplaceholder.typicode.com/users")  
-    const data = await res.data
+    const response = await axios.request(getCoinsOptions)
+    const data = await response.data.data.coins
     return data 
 })
+
+
   
 
   export const dataSlice =  createSlice({ 
@@ -21,8 +40,8 @@ export const fetchData = createAsyncThunk("fetchContent" ,async() =>{
     initialState,
     reducers:{
         handleFocus : (state , action) => {
-            console.log(action)
-            const dataFilter = state.datas?.filter((el) => +el.id === +action.payload.id);
+            // console.log(action)
+            const dataFilter = state.datas?.filter((el) => el.uuid === action.payload.uuid);
             state.selectedDatas = dataFilter
          }
         },
